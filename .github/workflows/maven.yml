@@ -13,7 +13,7 @@ jobs:
       run: mvn -B clean package
     - name: Get version
       run: |
-        echo "::set-output name=VERSION::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
+        echo ::set-output name=VERSION::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
     - name: Create Release
       uses: actions/create-release@v1
       env:
