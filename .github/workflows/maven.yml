@@ -16,7 +16,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ mvn help:evaluate -Dexpression=project.version -q -DforceStdout }}
-        release_name: ${{ mvn help:evaluate -Dexpression=project.version -q -DforceStdout }}
+        tag_name: $(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+        release_name: $(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
         draft: true
         prerelease: false
