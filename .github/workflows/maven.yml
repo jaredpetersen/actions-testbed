@@ -13,13 +13,13 @@ jobs:
       id: build
       run: |
         mvn -B clean package
-        echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
+        echo "::set-env name=VERSION::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
     - name: Create Release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        tag_name: ${{ steps.build.outputs.version }}
-        release_name: ${{ steps.build.outputs.version }}
+        tag_name: ${{ env.VERSION }}
+        release_name: ${{ env.VERSION }}
         draft: true
         prerelease: false
