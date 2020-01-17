@@ -27,7 +27,7 @@ jobs:
       with:
         tag_name: ${{ steps.deploy.outputs.version }}
         release_name: ${{ steps.deploy.outputs.version }}
-        draft: true
+        draft: false
         prerelease: false
     - name: Upload Release Asset -- JAR
       id: upload_release_asset_jar

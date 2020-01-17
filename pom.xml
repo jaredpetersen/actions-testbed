@@ -44,7 +44,7 @@
     <repository>
       <id>ossrh</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/jaredpetersen</url>
+      <url>https://maven.pkg.github.com/jaredpetersen/actions-testbed</url>
     </repository>
   </distributionManagement>
 
