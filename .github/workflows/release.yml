@@ -17,6 +17,9 @@ jobs:
       run: |
         mvn -B clean package
         echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
+    - name: Deploy
+      id: deploy
+      run: mvn clean deploy
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
