@@ -42,8 +42,8 @@
 
   <distributionManagement>
     <repository>
-      <id>ossrh</id>
-      <name>GitHub Packages</name>
+      <id>github</id>
+      <name>GitHub jaredpetersen Apache Maven Packages</name>
       <url>https://maven.pkg.github.com/jaredpetersen/actions-testbed</url>
     </repository>
   </distributionManagement>
