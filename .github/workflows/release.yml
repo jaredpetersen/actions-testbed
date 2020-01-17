@@ -12,13 +12,20 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Set up GPG
+      run: |
+        echo $GPG_PRIVATE_KEY > private.asc
+        gpg --import --batch private.asc
+      env:
+        GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
     - name: Deploy
       id: deploy
       run: |
-        mvn -B clean deploy
+        mvn -B -Pdeploy -Dgpg.passphrase=${GPG_PASSPHRASE} clean deploy
         echo "::set-output name=version::$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
