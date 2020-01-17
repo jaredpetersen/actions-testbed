@@ -11,4 +11,4 @@ jobs:
         java-version: 1.8
     - name: Build
       id: build
-      run: mvn -B clean package
+      run: mvn -B clean verify

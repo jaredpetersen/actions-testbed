@@ -43,14 +43,9 @@
   <distributionManagement>
     <repository>
       <id>ossrh</id>
-      <name>Sonatype Staging Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
+      <name>GitHub Packages</name>
+      <url>https://maven.pkg.github.com/jaredpetersen</url>
     </repository>
-    <snapshotRepository>
-      <id>ossrh</id>
-      <name>OSS Sonatype Nexus Snapshots</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
   </distributionManagement>
 
   <properties>
