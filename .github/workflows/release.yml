@@ -47,7 +47,7 @@ jobs:
         asset_name: actions-testbed-${{ steps.deploy.outputs.version }}.jar
         asset_content_type: application/java-archive
     - name: Upload Release Asset -- JAR ASC
-      id: upload_release_asset_jar
+      id: upload_release_asset_jar_asc
       uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -67,7 +67,7 @@ jobs:
         asset_name: actions-testbed-${{ steps.deploy.outputs.version }}-sources.jar
         asset_content_type: application/java-archive
     - name: Upload Release Asset -- Sources ASC
-      id: upload_release_asset_sources
+      id: upload_release_asset_sources_asc
       uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -87,7 +87,7 @@ jobs:
         asset_name: actions-testbed-${{ steps.deploy.outputs.version }}-javadoc.jar
         asset_content_type: application/java-archive
     - name: Upload Release Asset -- JavaDoc ASC
-      id: upload_release_asset_javadoc
+      id: upload_release_asset_javadoc_asc
       uses: actions/upload-release-asset@v1.0.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
