@@ -14,7 +14,7 @@ jobs:
         java-version: 1.8
     - name: Set up GPG
       run: |
-        echo $GPG_PRIVATE_KEY > private.asc
+        echo "$GPG_PRIVATE_KEY" > private.asc
         gpg -v --import --batch private.asc
       env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
