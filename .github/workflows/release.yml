@@ -15,7 +15,7 @@ jobs:
     - name: Set up GPG
       run: |
         echo "$GPG_PRIVATE_KEY" > private.asc
-        gpg -v --import --batch private.asc
+        gpg --import --batch private.asc
       env:
         GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
     - name: Deploy
@@ -46,6 +46,16 @@ jobs:
         asset_path: target/actions-testbed-${{ steps.deploy.outputs.version }}.jar
         asset_name: actions-testbed-${{ steps.deploy.outputs.version }}.jar
         asset_content_type: application/java-archive
+    - name: Upload Release Asset -- JAR ASC
+      id: upload_release_asset_jar
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: target/actions-testbed-${{ steps.deploy.outputs.version }}.jar.asc
+        asset_name: actions-testbed-${{ steps.deploy.outputs.version }}.jar.asc
+        asset_content_type: application/java-archive
     - name: Upload Release Asset -- Sources
       id: upload_release_asset_sources
       uses: actions/upload-release-asset@v1.0.1
@@ -56,6 +66,16 @@ jobs:
         asset_path: target/actions-testbed-${{ steps.deploy.outputs.version }}-sources.jar
         asset_name: actions-testbed-${{ steps.deploy.outputs.version }}-sources.jar
         asset_content_type: application/java-archive
+    - name: Upload Release Asset -- Sources ASC
+      id: upload_release_asset_sources
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: target/actions-testbed-${{ steps.deploy.outputs.version }}-sources.jar.asc
+        asset_name: actions-testbed-${{ steps.deploy.outputs.version }}-sources.jar.asc
+        asset_content_type: application/java-archive
     - name: Upload Release Asset -- JavaDoc
       id: upload_release_asset_javadoc
       uses: actions/upload-release-asset@v1.0.1
@@ -65,4 +85,14 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: target/actions-testbed-${{ steps.deploy.outputs.version }}-javadoc.jar
         asset_name: actions-testbed-${{ steps.deploy.outputs.version }}-javadoc.jar
+        asset_content_type: application/java-archive
+    - name: Upload Release Asset -- JavaDoc ASC
+      id: upload_release_asset_javadoc
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: target/actions-testbed-${{ steps.deploy.outputs.version }}-javadoc.jar.asc
+        asset_name: actions-testbed-${{ steps.deploy.outputs.version }}-javadoc.jar.asc
         asset_content_type: application/java-archive
