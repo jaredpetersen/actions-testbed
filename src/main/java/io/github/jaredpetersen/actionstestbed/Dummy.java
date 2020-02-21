@@ -2,10 +2,10 @@ package io.github.jaredpetersen.actionstestbed;
 
 public class Dummy {
   /**
-   * Do something else.
-   * @return "something else"
+   * Do something.
+   * @return "something"
    */
   public String doSomething() {
-    return "something else";
+    return "something";
   }
 }
