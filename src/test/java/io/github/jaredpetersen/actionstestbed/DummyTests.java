@@ -9,6 +9,6 @@ public class DummyTests {
   public void doSomethingReturnsSomething() {
     Dummy dummy = new Dummy();
 
-    assertEquals("something else", dummy.doSomething());
+    assertEquals("something", dummy.doSomething());
   }
 }
