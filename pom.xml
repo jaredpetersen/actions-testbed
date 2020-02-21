@@ -5,7 +5,7 @@
 
   <groupId>io.github.jaredpetersen</groupId>
   <artifactId>actions-testbed</artifactId>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <packaging>jar</packaging>
 
   <name>actions-testbed</name>
