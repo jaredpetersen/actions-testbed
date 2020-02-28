@@ -6,6 +6,6 @@ public class Dummy {
    * @return "something"
    */
   public String doSomething() {
-    return "something";
+    return "something else";
   }
 }
